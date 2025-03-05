@@ -67,7 +67,7 @@ Available commands:
         setActive(false);
         return;
       case 'github':
-        window.open('https://github.com/yourusername', '_blank');
+        window.open('https://github.com/Priyanshuraj21030', '_blank');
         response = 'Opening GitHub profile...';
         break;
       case 'skills':

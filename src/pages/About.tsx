@@ -33,6 +33,7 @@ import {
   SiPostman,
 } from "react-icons/si";
 import { TbBug } from "react-icons/tb";
+import { ArrowRight } from "lucide-react";
 
 interface GithubStats {
   publicRepos: number;
@@ -292,33 +293,30 @@ const About: React.FC = () => {
 
             <div className="flex flex-wrap gap-2">
               <a
-                href="/resume.pdf"
+                href="/RESUME.pdf"
                 download="Priyanshu_Raj_Resume.pdf"
                 className="bg-neon-blue/10 hover:bg-neon-blue/20 text-neon-blue px-4 py-2 rounded-full text-sm font-medium transition-colors neon-border flex items-center gap-2"
                 onClick={(e) => {
-                  // Prevent default if file doesn't exist
                   const link = e.currentTarget;
-                  if (!link.href.includes("resume.pdf")) {
-                    e.preventDefault();
-                    alert("Resume file is not available");
-                  }
+                  // Check if file exists
+                  fetch(link.href)
+                    .then((response) => {
+                      if (response.status === 404) {
+                        e.preventDefault();
+                        alert(
+                          "Resume file is currently being updated. Please try again later."
+                        );
+                      }
+                    })
+                    .catch(() => {
+                      e.preventDefault();
+                      alert(
+                        "There was an error downloading the resume. Please try again later."
+                      );
+                    });
                 }}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
+                <ArrowRight size={16} />
                 Download Resume
               </a>
               <a
