@@ -114,10 +114,10 @@ const projects: Project[] = [
       "A modern web application built with Vue.js that allows users to share their location with friends and family in real-time.",
     image:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    demoUrl: "https://your-demo-url.com/portfolio",
+    demoUrl: "https://real-time-tracker-chi.vercel.app/",
     previewType: "iframe",
     tags: ["React", "TypeScript", "Framer Motion", "Tailwind CSS"],
-    liveUrl: "https://example.com",
+    liveUrl: "https://real-time-tracker-chi.vercel.app/",
     githubUrl: "https://github.com/Priyanshuraj21030/Real-Time-Tracker",
     category: "frontend",
     features: [
@@ -163,11 +163,11 @@ const projects: Project[] = [
       "A comprehensive certificate management and verification system.",
     image:
       "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    demoUrl: "https://your-demo-url.com/weather-app",
+    demoUrl: "https://certificate-nine-delta.vercel.app/",
     previewType: "iframe",
-    tags: ["React", "Node.js", "MongoDB", "Express", "JWT"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/Priyanshuraj21030/Certify",
+    tags: ["React", "Node.js", "MongoDB", "Express", "JWT" , "Typescript" , "Next.js"],
+    liveUrl: "https://certificate-nine-delta.vercel.app/",
+    githubUrl: "https://github.com/Priyanshuraj21030/Certificate-Generator",
     category: "fullstack",
     features: [
       { icon: <Award size={18} />, text: "Certificate Generation" },
