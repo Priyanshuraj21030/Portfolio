@@ -165,7 +165,7 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
     demoUrl: "https://certificate-nine-delta.vercel.app/",
     previewType: "iframe",
-    tags: ["React", "Node.js", "MongoDB", "Express", "JWT" , "Typescript" , "Next.js"],
+    tags: ["React", "Node.js", "Express", "JWT" , "Typescript" , "Next.js"],
     liveUrl: "https://certificate-nine-delta.vercel.app/",
     githubUrl: "https://github.com/Priyanshuraj21030/Certificate-Generator",
     category: "fullstack",
