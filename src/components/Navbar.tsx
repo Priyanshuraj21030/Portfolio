@@ -31,19 +31,22 @@ const Navbar: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-        isScrolled ? 'glass shadow-lg' : 'bg-transparent'
+        isScrolled ? 'glass shadow-lg border-b border-neon-blue/30' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 group">
             <motion.div
-              whileHover={{ rotate: 10 }}
+              whileHover={{ rotate: 10, scale: 1.1 }}
               transition={{ duration: 0.2 }}
+              className="glow neon-pulse"
             >
               <Code className="text-neon-blue" size={28} />
             </motion.div>
-            <span className="font-mono font-bold text-xl">Portfolio</span>
+            <span className="font-mono font-bold text-xl neon-text group-hover:brightness-125 transition-all">
+              Portfolio
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -52,14 +55,16 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative font-medium transition-colors duration-300 hover:text-neon-blue ${
-                  location.pathname === link.path ? 'text-neon-blue' : 'text-gray-300'
+                className={`relative font-medium transition-all duration-300 hover:text-neon-blue hover:neon-text ${
+                  location.pathname === link.path 
+                    ? 'text-neon-blue neon-text brightness-110' 
+                    : 'text-gray-300'
                 }`}
               >
                 {location.pathname === link.path && (
                   <motion.span
                     layoutId="navIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-neon-blue"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-neon-blue neon-border"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}

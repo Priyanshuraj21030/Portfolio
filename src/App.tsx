@@ -44,13 +44,15 @@ function App() {
 
   return (
     <div className={`min-h-screen ${isNightTime ? 'bg-dark-bg' : 'bg-dark-accent'}`}>
+      <div className="bg-overlay" />
+      
       {loading ? (
         <Preloader />
       ) : (
         <>
           <CustomCursor />
           <Navbar />
-          <main className="pt-20 pb-16">
+          <main className="pt-20 pb-16 relative z-10">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

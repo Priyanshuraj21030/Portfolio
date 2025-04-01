@@ -10,7 +10,12 @@ body {
   @apply bg-dark-bg text-white font-sans overflow-x-hidden;
   margin: 0;
   padding: 0;
-  background-color: var(--bg-primary);
+  background: linear-gradient(
+    to bottom right,
+    var(--bg-primary),
+    var(--bg-secondary)
+  );
+  min-height: 100vh;
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -36,7 +41,11 @@ body {
 /* Glass effect */
 .glass {
   @apply bg-glass-bg backdrop-blur-lg;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px 0 rgba(10, 10, 20, 0.37),
+    inset 0 0 32px rgba(0, 238, 255, 0.05);
 }
 
 /* Neon text effect */
@@ -362,13 +371,6 @@ body {
 }
 
 /* Glass Effect Enhancement */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
 .glass:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(0, 255, 136, 0.3);
@@ -377,9 +379,10 @@ body {
 
 /* Cyber Grid Animation */
 .cyber-grid {
+  opacity: 0.15 !important;
   background-image:
-    linear-gradient(to right, rgba(0, 255, 136, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
       rgba(0, 0, 0, 1) 0%,
@@ -568,11 +571,11 @@ body {
   position: relative;
   color: #fff;
   text-shadow:
-    0 0 7px #00ff88,
-    0 0 10px #00ff88,
-    0 0 21px #00ff88,
-    0 0 42px #00ff88,
-    0 0 82px #00ff88;
+    0 0 10px var(--accent-primary),
+    0 0 20px var(--accent-primary),
+    0 0 30px var(--accent-primary),
+    0 0 40px var(--accent-secondary);
+  filter: brightness(1.2);
   animation: neon-flicker 4s infinite alternate-reverse;
 }
 
@@ -720,8 +723,9 @@ body {
 
 /* Dark Theme (Default) */
 .theme-dark {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
+  /* Make background darker and richer */
+  --bg-primary: #0a0a0f;  /* Darker background */
+  --bg-secondary: #151520;
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
   --accent-primary: #00ff88;
@@ -730,8 +734,9 @@ body {
 
 /* Cyberpunk Theme */
 .theme-cyberpunk {
-  --bg-primary: #0a0a1f;
-  --bg-secondary: #1a1a3a;
+  /* Deeper, richer background */
+  --bg-primary: #080818;
+  --bg-secondary: #12122a;
   --text-primary: #00ff88;
   --text-secondary: #00eeff;
   --accent-primary: #ff00ff;
@@ -750,12 +755,13 @@ body {
 
 /* Glassmorphism Theme */
 .theme-glassmorphism {
-  --bg-primary: #2a2a4a;
+  /* Darker base color */
+  --bg-primary: #1a1a2e;
   --bg-secondary: rgba(255, 255, 255, 0.1);
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --accent-primary: rgba(255, 255, 255, 0.2);
-  --accent-secondary: rgba(255, 255, 255, 0.1);
+  --text-secondary: rgba(255, 255, 255, 0.9);
+  --accent-primary: #00ff88;
+  --accent-secondary: #00eeff;
 }
 
 .theme-glassmorphism .cyber-grid {
@@ -799,4 +805,70 @@ body {
 
 .text-neon-blue {
   color: var(--accent-primary);
+}
+
+/* Add these utility classes for neon effects */
+.neon-text {
+  text-shadow: 0 0 10px var(--accent-primary),
+               0 0 20px var(--accent-primary),
+               0 0 30px var(--accent-primary),
+               0 0 40px var(--accent-secondary);
+  filter: brightness(1.2);
+}
+
+.neon-border {
+  box-shadow: 0 0 5px var(--accent-primary),
+              0 0 10px var(--accent-primary),
+              0 0 15px var(--accent-secondary),
+              inset 0 0 5px var(--accent-primary);
+}
+
+/* Enhanced glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px 0 rgba(10, 10, 20, 0.37),
+    inset 0 0 32px rgba(0, 238, 255, 0.05);
+}
+
+/* Add glow effect utility class */
+.glow {
+  filter: drop-shadow(0 0 8px var(--accent-primary));
+}
+
+/* Add these animation keyframes */
+@keyframes neon-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Add this to create a dark overlay */
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Adjust particles opacity */
+#tsparticles {
+  opacity: 0.5;
+}
+
+/* Cyber Grid - reduce opacity */
+.cyber-grid {
+  opacity: 0.15 !important;
+  background-image:
+    linear-gradient(to right, rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
 }
